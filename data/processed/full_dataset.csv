@@ -1,4 +1,191 @@
 HomeTeam,AwayTeam,FTHG,FTAG,FTR
+Burgos,Cultural Leonesa,5,1,H
+Valladolid,Ceuta,3,0,H
+Santander,Castellon,3,1,H
+Malaga,Eibar,1,1,D
+Granada,La Coruna,1,3,A
+Sociedad B,Zaragoza,1,0,H
+Cadiz,Mirandes,1,0,H
+Huesca,Leganes,1,1,D
+Las Palmas,Andorra,1,1,D
+Sp Gijon,Cordoba,2,1,H
+Almeria,Albacete,4,4,D
+Eibar,Granada,3,0,H
+Castellon,Valladolid,0,1,A
+Leganes,Cadiz,1,1,D
+Mirandes,Huesca,0,1,A
+Ceuta,Sp Gijon,0,1,A
+Zaragoza,Andorra,1,3,A
+La Coruna,Burgos,0,0,D
+Cultural Leonesa,Almeria,0,1,A
+Malaga,Sociedad B,1,0,H
+Albacete,Santander,2,3,A
+Cordoba,Las Palmas,1,3,A
+Sociedad B,Almeria,2,2,D
+Sp Gijon,Cultural Leonesa,1,0,H
+Santander,Ceuta,4,1,H
+Valladolid,Cordoba,0,0,D
+Castellon,Zaragoza,1,1,D
+Andorra,Burgos,2,1,H
+Cadiz,Albacete,2,1,H
+Las Palmas,Malaga,0,1,A
+Granada,Mirandes,1,2,A
+Huesca,Eibar,2,1,H
+Leganes,La Coruna,2,2,D
+Albacete,Mirandes,1,4,A
+Cordoba,Castellon,2,1,H
+La Coruna,Sp Gijon,1,0,H
+Zaragoza,Valladolid,1,1,D
+Malaga,Granada,2,2,D
+Ceuta,Huesca,2,1,H
+Burgos,Las Palmas,0,0,D
+Sociedad B,Cadiz,3,3,D
+Almeria,Santander,2,3,A
+Cultural Leonesa,Leganes,0,0,D
+Eibar,Andorra,2,0,H
+Las Palmas,Sociedad B,2,1,H
+Cadiz,Eibar,1,0,H
+Mirandes,La Coruna,1,5,A
+Huesca,Malaga,1,0,H
+Valladolid,Almeria,3,1,H
+Andorra,Cordoba,3,1,H
+Santander,Cultural Leonesa,2,4,A
+Castellon,Ceuta,3,3,D
+Sp Gijon,Burgos,2,3,A
+Granada,Leganes,0,2,A
+Zaragoza,Albacete,0,0,D
+La Coruna,Huesca,4,0,H
+Cultural Leonesa,Castellon,1,3,A
+Andorra,Mirandes,1,1,D
+Leganes,Las Palmas,0,1,A
+Almeria,Sp Gijon,2,1,H
+Ceuta,Zaragoza,1,0,H
+Albacete,Valladolid,2,0,H
+Eibar,Sociedad B,2,1,H
+Malaga,Cadiz,0,1,A
+Cordoba,Santander,2,2,D
+Burgos,Granada,1,1,D
+Mirandes,Zaragoza,0,1,A
+Eibar,La Coruna,1,1,D
+Santander,Andorra,1,2,A
+Las Palmas,Almeria,0,1,A
+Sociedad B,Cordoba,1,1,D
+Burgos,Malaga,2,1,H
+Cadiz,Ceuta,0,0,D
+Sp Gijon,Albacete,3,4,A
+Valladolid,Cultural Leonesa,0,1,A
+Huesca,Granada,0,1,A
+Leganes,Castellon,0,1,A
+Ceuta,Eibar,1,0,H
+La Coruna,Almeria,1,1,D
+Andorra,Leganes,1,2,A
+Huesca,Burgos,2,1,H
+Granada,Sociedad B,5,2,H
+Zaragoza,Cordoba,0,1,A
+Castellon,Sp Gijon,3,1,H
+Santander,Malaga,3,0,H
+Valladolid,Mirandes,1,1,D
+Las Palmas,Cadiz,1,0,H
+Cultural Leonesa,Albacete,0,0,D
+Granada,Las Palmas,0,0,D
+Mirandes,Leganes,0,0,D
+Almeria,Zaragoza,4,2,H
+Sociedad B,Andorra,3,0,H
+Albacete,Ceuta,0,0,D
+Eibar,Castellon,0,0,D
+Sp Gijon,Santander,2,1,H
+Burgos,Valladolid,0,1,A
+Cadiz,Huesca,1,0,H
+Malaga,La Coruna,3,0,H
+Cordoba,Cultural Leonesa,1,0,H
+Andorra,Granada,0,0,D
+Ceuta,Mirandes,2,0,H
+Zaragoza,Cultural Leonesa,0,5,A
+Leganes,Malaga,2,0,H
+Castellon,Albacete,0,1,A
+Valladolid,Sp Gijon,2,3,A
+Cordoba,Almeria,1,1,D
+Santander,La Coruna,2,1,H
+Las Palmas,Eibar,3,1,H
+Cadiz,Burgos,1,3,A
+Huesca,Las Palmas,1,1,D
+Cultural Leonesa,Ceuta,0,1,A
+Albacete,Cordoba,1,3,A
+Eibar,Leganes,0,0,D
+Burgos,Sociedad B,1,0,H
+Granada,Cadiz,0,0,D
+Mirandes,Santander,1,3,A
+Malaga,Andorra,4,1,H
+Almeria,Castellon,1,0,H
+Sp Gijon,Zaragoza,1,0,H
+La Coruna,Valladolid,1,1,D
+Santander,Sociedad B,1,0,H
+Cultural Leonesa,Mirandes,3,2,H
+Albacete,Huesca,2,1,H
+Leganes,Burgos,1,2,A
+Almeria,Eibar,3,1,H
+Andorra,Cadiz,0,0,D
+Cordoba,Ceuta,2,0,H
+Sp Gijon,Las Palmas,0,0,D
+Castellon,Malaga,2,1,H
+Zaragoza,La Coruna,0,2,A
+Valladolid,Granada,2,1,H
+Sociedad B,Huesca,2,0,H
+Mirandes,Sp Gijon,2,1,H
+Sociedad B,Leganes,2,1,H
+Eibar,Albacete,3,2,H
+Huesca,Andorra,2,2,D
+La Coruna,Cultural Leonesa,3,0,H
+Malaga,Cordoba,2,2,D
+Las Palmas,Santander,3,1,H
+Granada,Zaragoza,3,1,H
+Cadiz,Valladolid,0,0,D
+Burgos,Castellon,0,0,D
+Valladolid,Las Palmas,0,1,A
+Albacete,Andorra,1,0,H
+Castellon,Sociedad B,5,4,H
+Santander,Granada,2,2,D
+Ceuta,Leganes,1,2,A
+Almeria,Cadiz,3,0,H
+Sp Gijon,Eibar,1,1,D
+Cordoba,La Coruna,1,3,A
+Mirandes,Burgos,0,2,A
+Zaragoza,Huesca,1,0,H
+Cultural Leonesa,Malaga,1,0,H
+Las Palmas,Albacete,2,1,H
+Andorra,Castellon,1,3,A
+Eibar,Zaragoza,1,2,A
+Leganes,Almeria,0,3,A
+Granada,Cordoba,1,1,D
+La Coruna,Ceuta,2,1,H
+Cadiz,Cultural Leonesa,1,2,A
+Huesca,Sp Gijon,2,0,H
+Burgos,Santander,0,2,A
+Malaga,Mirandes,3,2,H
+Sociedad B,Valladolid,1,0,H
+Ceuta,Almeria,3,2,H
+Sp Gijon,Andorra,1,1,D
+Ceuta,Burgos,1,0,H
+Cultural Leonesa,Granada,0,1,A
+Albacete,La Coruna,0,2,A
+Almeria,Huesca,0,0,D
+Valladolid,Malaga,1,1,D
+Zaragoza,Leganes,3,2,H
+Santander,Eibar,4,0,H
+Cordoba,Cadiz,1,2,A
+Mirandes,Sociedad B,1,0,H
+Castellon,Las Palmas,1,0,H
+Andorra,Almeria,1,2,A
+Huesca,Valladolid,1,4,A
+Sociedad B,Sp Gijon,0,1,A
+Cadiz,Santander,2,3,A
+Leganes,Cordoba,0,0,D
+Eibar,Cultural Leonesa,1,2,A
+La Coruna,Castellon,1,3,A
+Granada,Ceuta,1,1,D
+Burgos,Albacete,0,1,A
+Las Palmas,Mirandes,0,0,D
+Malaga,Zaragoza,1,1,D
 Rennes,Marseille,1,0,H
 Lens,Lyon,0,1,A
 Monaco,Le Havre,3,1,H
