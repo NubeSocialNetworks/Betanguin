@@ -1,1 +1,37 @@
+name: Betanguin Daily Auto-Update
+
+on:
+  schedule:
+    - cron: "0 5 * * *"   # Se ejecuta cada día a las 05:00 UTC
+  workflow_dispatch:       # Permite lanzarlo manualmente
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+
+    - name: Install dependencies
+      run: |
+        pip install pandas numpy requests xgboost scikit-learn PyGithub scipy
+
+    - name: Set GitHub Token
+      run: echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
+
+    - name: Run Betanguin Script
+      run: python betanguin.py   # <---- CAMBIA AQUÍ EL NOMBRE DEL ARCHIVO DE TU SCRIPT
+
+    - name: Commit and push results
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: "Auto-update daily data and predictions"
+        commit_user_name: AutoBot
+        commit_user_email: autobot@example.com
 
