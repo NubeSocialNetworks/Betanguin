@@ -178,7 +178,7 @@ meta_model.fit(meta_df[meta_model_features], y_meta)
 print("✅ Meta-modelo entrenado")
 
 # -------------------------------
-# PREDICCIONES
+# PREDICCIONES DINÁMICAS CORREGIDAS
 # -------------------------------
 def predict_matches(matches):
     rows=[]
@@ -186,23 +186,31 @@ def predict_matches(matches):
         row = data[(data['HomeTeam']==home)&(data['AwayTeam']==away)].tail(1)
         if row.empty:
             row = pd.DataFrame([{
-                'HomeTeam':home,'AwayTeam':away,'HomeGoalsAvg':data['HomeGoalsAvg'].mean(),
-                'AwayGoalsAvg':data['AwayGoalsAvg'].mean(),'GoalDiff':data['HomeGoalsAvg'].mean()-data['AwayGoalsAvg'].mean(),
+                'HomeTeam':home,'AwayTeam':away,
+                'HomeGoalsAvg':data[data['HomeTeam']==home]['HomeGoalsAvg'].mean() if home in data['HomeTeam'].values else data['HomeGoalsAvg'].mean(),
+                'AwayGoalsAvg':data[data['AwayTeam']==away]['AwayGoalsAvg'].mean() if away in data['AwayTeam'].values else data['AwayGoalsAvg'].mean(),
+                'GoalDiff':0,
                 **{f'{t}_avg':0 for t in stats_cols},
-                'Home_Win_Streak':0,'Away_Win_Streak':0,'Home_BTTS_Streak':0,'Away_BTTS_Streak':0,
+                'Home_Win_Streak':0,'Away_Win_Streak':0,
+                'Home_BTTS_Streak':0,'Away_BTTS_Streak':0,
                 'Home_CleanSheet_Streak':0,'Away_CleanSheet_Streak':0,'FTR':'D'
             }])
-        
-        # 🔹 SOLO features_base PARA model_result
-        X_feat = row[features_base].values
+        row = row.iloc[0]
+
+        # 🔹 Ajuste dinámico de Poisson según racha
+        home_lambda = row['HomeGoalsAvg'] * (1 + 0.1 * row['Home_Win_Streak'])
+        away_lambda = row['AwayGoalsAvg'] * (1 + 0.1 * row['Away_Win_Streak'])
+
+        # Predicción XGB
+        X_feat = row[features_base].values.reshape(1, -1)
         pred_xgb = model_result.predict(X_feat)[0]
         prob_xgb = model_result.predict_proba(X_feat)[0]
-        
-        home_avg = row['HomeGoalsAvg'].values[0]
-        away_avg = row['AwayGoalsAvg'].values[0]
-        home_win_prob, draw_prob, away_win_prob = poisson_match_probs(home_avg, away_avg)
-        btts_prob = poisson_btts(home_avg, away_avg)
 
+        # Probabilidades Poisson
+        home_win_prob, draw_prob, away_win_prob = poisson_match_probs(home_lambda, away_lambda)
+        btts_prob = poisson_btts(home_lambda, away_lambda)
+
+        # Meta-modelo
         meta_input = [[pred_xgb, prob_xgb[0], prob_xgb[1], prob_xgb[2],
                        home_win_prob, draw_prob, away_win_prob, btts_prob]]
         final_class = meta_model.predict(meta_input)[0]
@@ -212,17 +220,17 @@ def predict_matches(matches):
             "HomeTeam":home,
             "AwayTeam":away,
             "FinalPrediction":mapping[final_class],
-            "HomeGoalsEst":home_avg,
-            "AwayGoalsEst":away_avg,
+            "HomeGoalsEst":round(home_lambda,2),
+            "AwayGoalsEst":round(away_lambda,2),
             "BTTS_final":'Sí' if btts_prob>0.5 else 'No',
-            "Prob_BTTS":btts_prob
+            "Prob_BTTS":round(btts_prob,3)
         })
     return pd.DataFrame(rows)
 
 # -------------------------------
 # EJEMPLO
 # -------------------------------
-matches = [(("Real Madrid","Manchester City"),
+matches = [("Real Madrid","Manchester City"),
            ("Ath Bilbao","PSG"),
            ("Leverkusen","Newcastle"),
            ("Hull", "Wrexham"),
@@ -252,3 +260,4 @@ if GITHUB_TOKEN:
         print("✅ Predicción subida a GitHub")
     except Exception as e:
         print(f"⚠ Error subiendo predicción: {e}")
+
