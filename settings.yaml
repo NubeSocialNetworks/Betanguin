@@ -1,0 +1,16 @@
+season: "2025-26"
+leagues:
+  laliga:
+    url: "https://www.football-data.co.uk/mmz4281/2526/SP1.csv"
+  laliga2:
+    url: "https://www.football-data.co.uk/mmz4281/2526/SP2.csv"
+  ligue1:
+    url: "https://www.football-data.co.uk/mmz4281/2526/FR1.csv"
+  ligue2:
+    url: "https://www.football-data.co.uk/mmz4281/2526/FR2.csv"
+  seriea:
+    url: "https://www.football-data.co.uk/mmz4281/2526/IT1.csv"
+  bundesliga1:
+    url: "https://www.football-data.co.uk/mmz4281/2526/GE1.csv"
+  bundesliga2:
+    url: "https://www.football-data.co.uk/mmz4281/2526/GE2.csv"
