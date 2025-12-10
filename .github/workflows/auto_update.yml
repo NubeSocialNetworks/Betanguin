@@ -25,8 +25,8 @@ jobs:
     - name: Set GitHub Token
       run: echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
 
-    - name: Run Betanguin 
-      run: python betanguin.py   # <---- CAMBIA AQUÍ EL NOMBRE DEL ARCHIVO DE TU SCRIPT
+    - name: Run Betanguin
+      run: python betanguin.py   # Cambia la ruta si tu script no está en la raíz
 
     - name: Commit and push results
       uses: stefanzweifel/git-auto-commit-action@v4
@@ -34,4 +34,5 @@ jobs:
         commit_message: "Auto-update daily data and predictions"
         commit_user_name: AutoBot
         commit_user_email: autobot@example.com
+
 
