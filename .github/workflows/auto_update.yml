@@ -23,10 +23,10 @@ jobs:
         pip install pandas numpy requests xgboost scikit-learn PyGithub scipy
 
     - name: Set GitHub Token
-      run: echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
+      run: echo "GITHUB_TOKEN=${{ secrets.NUBE_TOKEN }}" >> $GITHUB_ENV
 
-    - name: Run Betanguin
-      run: python ./betanguin.py
+    - name: Run Betanguin 
+      run: python ./betanguin.py   # Asegúrate de que betanguin.py está en la raíz
 
     - name: Commit and push results
       uses: stefanzweifel/git-auto-commit-action@v4
@@ -34,5 +34,4 @@ jobs:
         commit_message: "Auto-update daily data and predictions"
         commit_user_name: AutoBot
         commit_user_email: autobot@example.com
-
-
+        token: ${{ secrets.NUBE_TOKEN }}
