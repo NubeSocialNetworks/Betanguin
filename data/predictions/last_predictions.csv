@@ -1,8 +1,8 @@
-HomeTeam,AwayTeam,FinalPrediction,HomeGoals,AwayGoals,BTTS_final,Prob_BTTS
-Real Madrid,Manchester City,Home Win,2.0,1.205470737913486,Sí,0.605653573955133
-Ath Bilbao,PSG,Away Win,1.0,1.205470737913486,No,0.4427682409178221
-Leverkusen,Newcastle,Home Win,2.2857142857142856,1.0,Sí,0.5678330178915675
-Hull,Wrexham,Home Win,1.6,1.0,Sí,0.5044976190482362
-Bristol City,Leicester City,Draw,1.4,1.205470737913486,Sí,0.5277204361078137
-Derby County,Millwall,Home Win,1.460559796437659,1.2222222222222223,Sí,0.5416915408788442
-Ipswich,Stoke City,Home Win,1.8,1.205470737913486,Sí,0.5846655954983975
+HomeTeam,AwayTeam,FinalPrediction,HomeGoalsEst,AwayGoalsEst,BTTS_final,Prob_BTTS
+Real Madrid,Manchester City,Home Win,2.0,1.2,Sí,0.605
+Ath Bilbao,PSG,Home Win,1.0,1.2,No,0.442
+Leverkusen,Newcastle,Home Win,2.29,1.0,Sí,0.568
+Hull,Wrexham,Home Win,1.96,0.99,Sí,0.54
+Bristol City,Leicester City,Home Win,1.45,1.2,Sí,0.537
+Derby County,Millwall,Home Win,1.46,1.2,Sí,0.537
+Ipswich,Stoke City,Home Win,1.73,1.2,Sí,0.576
