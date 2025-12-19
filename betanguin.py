@@ -9,9 +9,19 @@ from xgboost import XGBClassifier
 from sklearn.ensemble import RandomForestClassifier
 from scipy.stats import poisson
 
+try:
+    from github import Github
+except ModuleNotFoundError:
+    os.system("pip install PyGithub")
+    from github import Github
+
 # ======================================================
 # CONFIGURACIÓN
 # ======================================================
+GITHUB_TOKEN = os.getenv("NUBE_TOKEN")
+GITHUB_USER = "NubeSocialNetworks"
+GITHUB_REPO = "Betanguin"
+
 LEAGUES = {
     "LaLiga": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
     "LaLiga2": "https://www.football-data.co.uk/mmz4281/2526/SP2.csv",
@@ -88,7 +98,7 @@ model_btts = XGBClassifier(eval_metric='logloss')
 model_btts.fit(X, y_btts)
 
 # ======================================================
-# FUNCION DE PREDICCION ROBUSTA
+# FUNCION DE PREDICCION FINAL
 # ======================================================
 def predict_matches(matches, data, stats_cols, model_result, model_btts, streaks_dict):
     rows = []
@@ -156,16 +166,38 @@ def predict_matches(matches, data, stats_cols, model_result, model_btts, streaks
 # ======================================================
 ENRICHED_CSV_PATH = "data/processed/full_dataset_enriched.csv"
 data.to_csv(ENRICHED_CSV_PATH, index=False)
-print(f"✔ CSV actualizado: {ENRICHED_CSV_PATH}")
+print(f"✔ CSV actualizado localmente: {ENRICHED_CSV_PATH}")
 
 # Subida automática a GitHub
 try:
     g = Github(GITHUB_TOKEN)
-    repo = g.get_user(GITHUB_USER).get_repo(GITHUB_REPO)
+    repo = g.get_user().get_repo(GITHUB_REPO)
     with open(ENRICHED_CSV_PATH, "r") as f:
         content = f.read()
-    file = repo.get_contents("data/processed/full_dataset_enriched.csv")
-    repo.update_file(file.path, "Auto-update enriched CSV", content, file.sha)
+    try:
+        file = repo.get_contents("data/processed/full_dataset_enriched.csv")
+        repo.update_file(file.path, "Auto-update enriched CSV", content, file.sha)
+    except:
+        repo.create_file("data/processed/full_dataset_enriched.csv", "Auto-create enriched CSV", content)
     print("✔ CSV subido a GitHub correctamente")
 except Exception as e:
     print(f"⚠ Error subiendo CSV a GitHub: {e}")
+
+# ======================================================
+# PARTIDOS A PREDECIR
+# ======================================================
+#matches = [
+#    ("Paderborn", "Darmstadt"),
+#    ("Hertha", "Bielefeld"),
+#    ("Eibar", "Valladolid"),
+#    ("Valencia", "Mallorca"),
+#    ("Swansea", "Wrexham"),
+#    ("Dortmund", "M'gladbach")
+#]
+
+# ======================================================
+# EJECUTAR PREDICCIONES
+# ======================================================
+#df_predictions = predict_matches(matches, data, stats_cols, model_result, model_btts, streaks_dict)
+#print("\n📊 Predicciones de hoy:")
+#print(df_predictions)
