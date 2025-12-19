@@ -2,8 +2,11 @@ name: Betanguin Daily Auto-Update
 
 on:
   schedule:
-    - cron: "0 5 * * *"   # Se ejecuta cada día a las 05:00 UTC
-  workflow_dispatch:       # Permite lanzarlo manualmente
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   update:
@@ -11,9 +14,9 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
-        persist-credentials: false  # Muy importante para usar token propio
+        persist-credentials: true
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -30,7 +33,7 @@ jobs:
     - name: Commit and push results
       run: |
         git config user.name "AutoBot"
-        git config user.email "autobot@example.com"
+        git config user.email "autobot@github.com"
         git add .
         git commit -m "Auto-update daily data and predictions" || echo "No changes to commit"
-        git push https://x-access-token:${{ secrets.NUBE_TOKEN }}@github.com/NubeSocialNetworks/Betanguin.git main
+        git push
