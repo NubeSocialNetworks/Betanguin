@@ -33,7 +33,8 @@ jobs:
     - name: Commit and push results
       run: |
         git config user.name "AutoBot"
-        git config user.email "autobot@github.com"
+        git config user.email "autobot@example.com"
         git add .
         git commit -m "Auto-update daily data and predictions" || echo "No changes to commit"
         git push
+
