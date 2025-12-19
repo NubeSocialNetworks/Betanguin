@@ -16,7 +16,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        persist-credentials: true
+        fetch-depth: 0   # IMPORTANTE
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -31,10 +31,16 @@ jobs:
       run: python ./betanguin.py
 
     - name: Commit and push results
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         git config user.name "AutoBot"
         git config user.email "autobot@example.com"
+
         git add .
         git commit -m "Auto-update daily data and predictions" || echo "No changes to commit"
-        git push
+
+        # 🔥 FIX DEFINITIVO
+        git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/NubeSocialNetworks/Betanguin.git
+        git push origin main
 
